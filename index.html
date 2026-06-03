@@ -1170,7 +1170,37 @@ footer {
     object-fit: cover;
     max-width: 100%;
 }
+.portrait-frame {
+  aspect-ratio: auto;
+  height: auto;
+  background: none;
+  overflow: visible;
+  box-shadow: 8px 12px 48px rgba(0,0,0,0.18);
+}
 
+.portrait-frame img,
+.portrait-placeholder-text img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center top;
+  filter: sepia(0.22) contrast(1.08) brightness(0.96) saturate(0.82);
+}
+
+.portrait-placeholder-text {
+  position: static;
+  display: block;
+  max-width: 100%;
+}
+
+.portrait-frame::before {
+  pointer-events: none;
+  z-index: 2;
+  background:
+    radial-gradient(circle at center, transparent 55%, rgba(28,26,23,0.18) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 4px);
+}
 </style>
 </head>
 <body>
@@ -1552,7 +1582,7 @@ footer {
       <div class="about-portrait-area reveal">
         <div class="portrait-frame">
           <div class="portrait-placeholder-text">
-            <img src = "marijavasic.webp">
+            <img src = "marijavasic.png">
 
           </div>
         </div>
